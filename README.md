@@ -1,6 +1,6 @@
 # HBNB - The Console
 
-![Latest commit](https://img.shields.io/github/last-commit/B3zaleel/AirBnB_clone_v2/master?style=round-square)
+![Latest commit](https://img.shields.io/github/last-commit/kofilolx/AirBnB_clone_v2/master?style=round-square)
 
 ### Description
 
