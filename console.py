@@ -112,14 +112,15 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """ Overrides the emptyline method of CMD """
         pass
-    
+
     def do_create(self, arg):
         """
         Create an object of any class with given parameters.
         Command syntax: create <Class name> <param 1> <param 2> <param 3>...
         Param syntax: <key name>=<value>
         Value syntax:
-            - String: "<value>" (escaped double quotes with backslash if needed)
+            - String: "<value>" (escaped double quotes with backslash if
+            needed)
             - Float: <unit>.<decimal>
             - Integer: <number>
         Example usage:
@@ -140,29 +141,24 @@ class HBNBCommand(cmd.Cmd):
             return
 
         """Create a dictionary to store parameter key-value pairs"""
-    param_dict = {}
-    for param in params:
-        try:
-            key, value = param.split("=")
-            # Handle different value types (string, float, integer)
-            if value.startswith('"') and value.endswith('"'):
-                # String value
-                param_dict[key] = value[1:-1].replace("_", " ")
-            elif "." in value:
-                # Float value
-                param_dict[key] = float(value)
-            else:
-                # Integer value
-                param_dict[key] = int(value)
-        except ValueError:
-            # Skip invalid parameters
-            pass
-
-    # Create an instance of the specified class with the given parameters
-    new_instance = HBNBCommand.classesclass_name
-    new_instance.save()
-    print(new_instance.id)
-
+        param_dict = {}
+        for param in params:
+            try:
+                key, value = param.split("=")
+                """Handle different value types (string, float, integer)"""
+                if value.startswith('"') and value.endswith('"'):
+                    param_dict[key] = value[1:-1].replace("_", " ")
+                elif "." in value:
+                    param_dict[key] = float(value)
+                else:
+                    param_dict[key] = int(value)
+            except ValueError:
+                pass
+        """Create an instance of the specified class with the
+        given parameters"""
+        new_instance = HBNBCommand.classesclass_name
+        new_instance.save()
+        print(new_instance.id)
 
     def help_create(self):
         """ Help information for the create method """
