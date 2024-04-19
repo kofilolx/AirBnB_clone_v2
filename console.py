@@ -113,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
         """ Overrides the emptyline method of CMD """
         pass
 
-    def do_create(self, arg):
+    def do_create(self, args):
         """
         Create an object of any class with given parameters.
         Command syntax: create <Class name> <param 1> <param 2> <param 3>...
@@ -127,11 +127,11 @@ class HBNBCommand(cmd.Cmd):
         create User email="user@example.com" age=30
         create Product name="My Product" price=99.99
         """
-        if not arg:
+        if not args:
             print("** class name missing **")
             return
         """Split the arguments into class name and parameters"""
-        args_list = arg.split()
+        args_list = args.split()
         class_name = args_list[0]
         params = args_list[1:]
 
@@ -156,10 +156,10 @@ class HBNBCommand(cmd.Cmd):
                 pass
         """Create an instance of the specified class with the
         given parameters"""
-        new_instance = HBNBCommand.classesclass_name
-        new_instance.save()
+        new_instance = HBNBCommand.classes[args]()
+        storage.save()
         print(new_instance.id)
-
+        storage.save()
     def help_create(self):
         """ Help information for the create method """
         print("Creates a class of any type")
