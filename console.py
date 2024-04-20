@@ -156,7 +156,7 @@ class HBNBCommand(cmd.Cmd):
                 pass
         """Create an instance of the specified class with the
         given parameters"""
-        new_instance = HBNBCommand.classes[args]()
+        new_instance = HBNBCommand.classes[class_name]()
         storage.save()
         print(new_instance.id)
         storage.save()
