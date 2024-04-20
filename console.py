@@ -148,6 +148,7 @@ class HBNBCommand(cmd.Cmd):
                 """Handle different value types (string, float, integer)"""
                 if value.startswith('"') and value.endswith('"'):
                     param_dict[key] = value[1:-1].replace("_", " ")
+                    param_dict[key] = param_dict[key].replace('"', '\"') 
                 elif "." in value:
                     param_dict[key] = float(value)
                 else:
