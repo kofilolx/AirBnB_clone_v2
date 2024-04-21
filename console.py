@@ -148,7 +148,7 @@ class HBNBCommand(cmd.Cmd):
                 """Handle different value types (string, float, integer)"""
                 if value.startswith('"') and value.endswith('"'):
                     param_dict[key] = value[1:-1].replace("_", " ")
-                    param_dict[key] = param_dict[key].replace('"', '\"') 
+                    param_dict[key] = param_dict[key].replace('"', '\"')
                 elif "." in value:
                     param_dict[key] = float(value)
                 else:
@@ -159,10 +159,11 @@ class HBNBCommand(cmd.Cmd):
         given parameters"""
         new_instance = HBNBCommand.classes[class_name]()
         for name in param_dict:
-            new_instance.name = param_dict[name]  
+            new_instance.name = param_dict[name]
         storage.save()
         print(new_instance.id, new_instance)
         storage.save()
+
     def help_create(self):
         """ Help information for the create method """
         print("Creates a class of any type")
@@ -224,7 +225,7 @@ class HBNBCommand(cmd.Cmd):
         key = c_name + "." + c_id
 
         try:
-            del(storage.all()[key])
+            del (storage.all()[key])
             storage.save()
         except KeyError:
             print("** no instance found **")
