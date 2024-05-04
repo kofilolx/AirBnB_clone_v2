@@ -5,7 +5,7 @@ from datetime import datetime
 from fabric.api import env, local, put, run, runs_once
 
 
-env.hosts = ["34.73.0.174", "35.196.78.105"]
+env.hosts = ["3.84.237.7","54.160.101.253"]
 """The list of host server IP addresses."""
 
 
@@ -14,14 +14,14 @@ def do_pack():
     """Archives the static files."""
     if not os.path.isdir("versions"):
         os.mkdir("versions")
-    cur_time = datetime.now()
+    curr_time = datetime.now()
     output = "versions/web_static_{}{}{}{}{}{}.tgz".format(
-        cur_time.year,
-        cur_time.month,
-        cur_time.day,
-        cur_time.hour,
-        cur_time.minute,
-        cur_time.second
+        curr_time.year,
+        curr_time.month,
+        curr_time.day,
+        curr_time.hour,
+        curr_time.minute,
+        curr_time.second
     )
     try:
         print("Packing web_static to {}".format(output))
