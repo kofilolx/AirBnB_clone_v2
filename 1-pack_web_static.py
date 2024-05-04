@@ -1,6 +1,6 @@
 from fabric import task
 from datetime import datetime
-from fabric.api import local
+from fabric.api import *
 from os.path import isdir
 
 @task
