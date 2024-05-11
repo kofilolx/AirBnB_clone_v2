@@ -1,11 +1,16 @@
 #!/usr/bin/python3
+# Fabfile to create and distribute an archive to a web server.
+
 """A module for web application deployment with Fabric."""
-import os
+import os.path
 from datetime import datetime
-from fabric.api import env, local, put, run, runs_once
+from fabric.api import env
+from fabric.api import local
+from fabric.api import put
+from fabric.api import run
 
 
-env.hosts = ["3.84.237.7","54.160.101.253"]
+env.hosts = ["3.84.237.7", "54.160.101.253"]
 """The list of host server IP addresses."""
 
 
